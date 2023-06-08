@@ -1,7 +1,7 @@
 from django.db import models
 
 class Trip(models.Model):
-    organizer = models.ForeignKey("CrackerjacksUser", on_delete=models.CASCADE)
+    organizer = models.ForeignKey("CrackerjacksUser", on_delete=models.CASCADE, related_name="trips")
     title = models.CharField(max_length=100)
     image_url = models.TextField(null=True, blank=True)
     date = models.DateField(null=False, blank=False, auto_now=False, auto_now_add=False)

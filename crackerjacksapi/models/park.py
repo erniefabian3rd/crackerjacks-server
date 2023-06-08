@@ -6,3 +6,5 @@ class Park(models.Model):
     location = models.CharField(max_length=100)
     image_url = models.TextField(null=True, blank=True)
     capacity = models.CharField(max_length=50)
+    rating = models.ManyToManyField("CrackerjacksUser", through="ParkRating", related_name="park_ratings")
+    review = models.ManyToManyField("CrackerjacksUser", through="ParkReview", related_name="park_reviews")
