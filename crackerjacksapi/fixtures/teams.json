@@ -5,7 +5,7 @@
         "fields": {
             "name": "Arizona Diamondbacks",
             "bio": "The Diamondbacks bring the heat to the desert, with a fierce spirit and a determination to conquer the game. They strive for excellence and dazzle fans with their power plays.",
-            "image_url": "https://imgur.com/TTLlVWp",
+            "image_url": "https://i.imgur.com/gM2ICqw.png",
             "park": 1
         }
     },
@@ -15,7 +15,7 @@
         "fields": {
             "name": "Atlanta Braves",
             "bio": "The Braves march onto the field with a legacy of triumph and a spirit of unity. They embody resilience and grace, captivating fans with their unwavering dedication to the game.",
-            "image_url": "https://imgur.com/tgS0Uiw",
+            "image_url": "https://i.imgur.com/Y4KcCRo.png",
             "park": 2
         }
     },
@@ -25,7 +25,7 @@
         "fields": {
             "name": "Baltimore Orioles",
             "bio": "The Orioles soar through the baseball realm with elegance and precision. They paint the skies black and orange, embodying the spirit of Baltimore and captivating fans with their timeless charm.",
-            "image_url": "https://imgur.com/b8kAghp",
+            "image_url": "https://i.imgur.com/rEV6U81.png",
             "park": 3
         }
     },
@@ -35,7 +35,7 @@
         "fields": {
             "name": "Boston Red Sox",
             "bio": "The Red Sox, a force to be reckoned with, embody the heart and soul of Boston. With a legacy as rich as the Green Monster, they captivate fans with their relentless pursuit of victory.",
-            "image_url": "https://imgur.com/JlmCt5p",
+            "image_url": "https://i.imgur.com/0e5zvFH.png",
             "park": 4
         }
     },
@@ -45,7 +45,7 @@
         "fields": {
             "name": "Chicago Cubs",
             "bio": "The Cubs, a symbol of hope and perseverance, bring joy to the Friendly Confines of Wrigley Field. They enchant fans with their unwavering loyalty and the pursuit of the elusive World Series title.",
-            "image_url": "https://imgur.com/EQMLACQ",
+            "image_url": "https://i.imgur.com/oVBz1Z1.png",
             "park": 5
         }
     },
@@ -55,7 +55,7 @@
         "fields": {
             "name": "Chicago White Sox",
             "bio": "The White Sox are a team of grit and determination, representing the vibrant spirit of Chicago. They dominate the field with their fierce talent, captivating fans with their electrifying presence.",
-            "image_url": "https://imgur.com/OliQ8cz",
+            "image_url": "https://i.imgur.com/4KkI1wT.png",
             "park": 6
         }
     },
@@ -65,7 +65,7 @@
         "fields": {
             "name": "Cincinnati Reds",
             "bio": "The Reds, a storied franchise, paint the diamond with a passionate shade of red. They ignite the game with their tenacity and skill, captivating fans with their unwavering determination.",
-            "image_url": "https://imgur.com/ttvhzcY",
+            "image_url": "https://i.imgur.com/PpOFUVQ.png",
             "park": 7
         }
     },
@@ -75,7 +75,7 @@
         "fields": {
             "name": "Cleveland Guardians",
             "bio": "The Guardians stand tall as a symbol of strength and unity in Cleveland. They guard their territory with fierce determination, captivating fans with their unwavering spirit.",
-            "image_url": "https://imgur.com/wSCzWuz",
+            "image_url": "https://i.imgur.com/IZh2J4M.png",
             "park": 8
         }
     },
@@ -85,7 +85,7 @@
         "fields": {
             "name": "Colorado Rockies",
             "bio": "The Rockies, surrounded by majestic peaks, bring the power of the mountains to the diamond. They captivate fans with their towering hits and awe-inspiring performances.",
-            "image_url": "https://imgur.com/fAEpMRo",
+            "image_url": "https://i.imgur.com/nidmKBT.png",
             "park": 9
         }
     },
@@ -95,7 +95,7 @@
         "fields": {
             "name": "Detroit Tigers",
             "bio": "The Tigers prowl through the jungle of baseball, embodying the relentless spirit of Detroit. They captivate fans with their roaring power and unwavering dedication to the game.",
-            "image_url": "https://imgur.com/dNdFbBo",
+            "image_url": "https://i.imgur.com/zsJytJ8.png",
             "park": 10
         }
     },
@@ -105,7 +105,7 @@
         "fields": {
             "name": "Houston Astros",
             "bio": "The Astros, reaching for the stars, bring cosmic energy to the diamond. They captivate fans with their meteoric rise and a passion for the game that knows no bounds.",
-            "image_url": "https://imgur.com/QTh2Lct",
+            "image_url": "https://i.imgur.com/d8apSJ6.png",
             "park": 11
         }
     },
@@ -115,7 +115,7 @@
         "fields": {
             "name": "Kansas City Royals",
             "bio": "The Royals, crowned with a legacy of triumph, reign supreme on the baseball field. They captivate fans with their regal grace and an unwavering commitment to excellence.",
-            "image_url": "https://imgur.com/6VroRyq",
+            "image_url": "https://i.imgur.com/JU90mlt.png",
             "park": 12
         }
     },
@@ -125,7 +125,7 @@
         "fields": {
             "name": "Los Angeles Angels",
             "bio": "The Angels, celestial beings of the diamond, captivate fans with their heavenly talents. They bring the City of Angels to life with their electrifying performances and a spirit that soars.",
-            "image_url": "https://imgur.com/orRU5SN",
+            "image_url": "https://i.imgur.com/H7e8yil.png",
             "park": 13
         }
     },
@@ -135,7 +135,7 @@
         "fields": {
             "name": "Los Angeles Dodgers",
             "bio": "The Dodgers, a legendary franchise, command the field with their indomitable spirit. They captivate fans with their mastery of the game and a legacy that echoes through the ages.",
-            "image_url": "https://imgur.com/rfcIWVv",
+            "image_url": "https://i.imgur.com/JznjwVp.png",
             "park": 14
         }
     },
@@ -145,7 +145,7 @@
         "fields": {
             "name": "Miami Marlins",
             "bio": "The Marlins, swimming through the currents of baseball, bring the vibrant spirit of Miami to the diamond. They captivate fans with their unpredictable moves and a dedication to making waves.",
-            "image_url": "https://imgur.com/2I7xM7Y",
+            "image_url": "https://i.imgur.com/NpF7CCu.png",
             "park": 15
         }
     },
@@ -155,7 +155,7 @@
         "fields": {
             "name": "Milwaukee Brewers",
             "bio": "The Brewers brew a concoction of skill and passion, captivating fans with their relentless pursuit of victory. They embody the spirit of Milwaukee and pour their heart into every game.",
-            "image_url": "https://imgur.com/631NhFi",
+            "image_url": "https://i.imgur.com/g4fhr79.png",
             "park": 16
         }
     },
@@ -165,7 +165,7 @@
         "fields": {
             "name": "Minnesota Twins",
             "bio": "The Twins, bound by an unbreakable bond, captivate fans with their synchronicity and harmonious play. They bring the heart of Minnesota to the field, leaving fans in awe of their teamwork.",
-            "image_url": "https://imgur.com/sW7lHTw",
+            "image_url": "https://i.imgur.com/pfD6xLl.png",
             "park": 17
         }
     },
@@ -175,7 +175,7 @@
         "fields": {
             "name": "New York Mets",
             "bio": "The Mets, a team forged in the heart of New York, captivate fans with their gritty determination. They bring the city to life with their electrifying performances and an unwavering belief in their orange and blue.",
-            "image_url": "https://imgur.com/VWNgwSz",
+            "image_url": "https://i.imgur.com/cwoRkB5.png",
             "park": 18
         }
     },
@@ -185,7 +185,7 @@
         "fields": {
             "name": "New York Yankees",
             "bio": "The Yankees, a storied franchise drenched in history, captivate fans with their unrivaled legacy. They dominate the diamond with their pinstriped elegance and an unwavering commitment to greatness.",
-            "image_url": "https://imgur.com/Vprp9na",
+            "image_url": "https://i.imgur.com/R5rtUoz.png",
             "park": 19
         }
     },
@@ -195,7 +195,7 @@
         "fields": {
             "name": "Oakland Athletics",
             "bio": "The Athletics, guardians of the Bay Area, captivate fans with their boundless energy and relentless pursuit of victory. They bring the green and gold to life, leaving fans in awe of their tenacity.",
-            "image_url": "https://imgur.com/2JjOiT1",
+            "image_url": "https://i.imgur.com/imzSp8N.png",
             "park": 20
         }
     },
@@ -205,7 +205,7 @@
         "fields": {
             "name": "Philadelphia Phillies",
             "bio": "The Phillies, warriors of brotherly love, captivate fans with their unyielding spirit. They bring the heart of Philadelphia to the diamond, leaving fans inspired by their fierce determination.",
-            "image_url": "https://imgur.com/u8najS3",
+            "image_url": "https://i.imgur.com/puHF4l4.png",
             "park": 21
         }
     },
@@ -215,7 +215,7 @@
         "fields": {
             "name": "Pittsburgh Pirates",
             "bio": "The Pirates, seekers of buried treasure, captivate fans with their relentless pursuit of victory. They navigate the waves of the baseball realm with skill and passion, leaving fans in awe of their swashbuckling spirit.",
-            "image_url": "https://imgur.com/OD5lquw",
+            "image_url": "https://i.imgur.com/bws9YMf.png",
             "park": 22
         }
     },
@@ -225,7 +225,7 @@
         "fields": {
             "name": "San Diego Padres",
             "bio": "The Padres, guardians of the sunny shores, captivate fans with their electric performances. They bring the thrill of San Diego to the diamond, leaving fans breathless with their awe-inspiring play.",
-            "image_url": "https://imgur.com/kjDT4T2",
+            "image_url": "https://i.imgur.com/FVSiMRq.png",
             "park": 23
         }
     },
@@ -235,7 +235,7 @@
         "fields": {
             "name": "San Francisco Giants",
             "bio": "The Giants, giants of the game, captivate fans with their colossal presence. They bring the orange and black to life, leaving fans in awe of their towering hits and unwavering determination.",
-            "image_url": "https://imgur.com/EsRF1fQ",
+            "image_url": "https://i.imgur.com/kszwqf7.png",
             "park": 24
         }
     },
@@ -245,7 +245,7 @@
         "fields": {
             "name": "Seattle Mariners",
             "bio": "The Mariners, masters of the sea, captivate fans with their unwavering determination. They navigate the depths of the baseball realm, bringing the spirit of Seattle to life with their electrifying performances.",
-            "image_url": "https://imgur.com/umMhY1J",
+            "image_url": "https://i.imgur.com/ZX5mGTr.png",
             "park": 25
         }
     },
@@ -255,7 +255,7 @@
         "fields": {
             "name": "St. Louis Cardinals",
             "bio": "The Cardinals, lords of the baseball kingdom, captivate fans with their storied legacy. They bring the heart of St. Louis to the diamond, leaving fans in awe of their timeless elegance and unwavering dedication.",
-            "image_url": "https://imgur.com/zLDoBGi",
+            "image_url": "https://i.imgur.com/I7RAjD1.png",
             "park": 26
         }
     },
@@ -264,8 +264,8 @@
         "pk": 27,
         "fields": {
             "name": "Tampa Bay Rays",
-            "bio": " The Rays, a beacon of light, captivate fans with their radiant performances. They illuminate the field with their boundless energy and an unwavering commitment to greatness.",
-            "image_url": "https://imgur.com/Ff9gbPZ",
+            "bio": "The Rays, a beacon of light, captivate fans with their radiant performances. They illuminate the field with their boundless energy and an unwavering commitment to greatness.",
+            "image_url": "https://i.imgur.com/d5EW0Si.png",
             "park": 27
         }
     },
@@ -275,7 +275,7 @@
         "fields": {
             "name": "Texas Rangers",
             "bio": "The Rangers, guardians of the Lone Star State, captivate fans with their relentless pursuit of victory. They bring the spirit of Texas to the diamond, leaving fans in awe of their indomitable spirit.",
-            "image_url": "https://imgur.com/Zn9N7at",
+            "image_url": "https://i.imgur.com/FUSJ5XJ.png",
             "park": 28
         }
     },
@@ -285,7 +285,7 @@
         "fields": {
             "name": "Toronto Blue Jays",
             "bio": "The Blue Jays, soaring through the skies, captivate fans with their electrifying performances. They bring the spirit of Toronto to the diamond, leaving fans in awe of their explosive power.",
-            "image_url": "https://imgur.com/rMFvcRY",
+            "image_url": "https://i.imgur.com/hxaLVJ0.png",
             "park": 29
         }
     },
@@ -295,7 +295,7 @@
         "fields": {
             "name": "Washington Nationals",
             "bio": "The Nationals, defenders of the nation's capital, captivate fans with their unwavering determination. They bring the spirit of Washington, D.C., to life with their indomitable spirit and a pursuit of victory that echoes through the ages.",
-            "image_url": "https://imgur.com/OpHd3Aq",
+            "image_url": "https://i.imgur.com/T2S0zeV.png",
             "park": 30
         }
     }
