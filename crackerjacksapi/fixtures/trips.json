@@ -1,0 +1,15 @@
+[
+    {
+        "model": "crackerjacksapi.trip",
+        "pk": 1,
+        "fields": {
+            "organizer": 1,
+            "title": "ATLiens Assemble",
+            "image_url": "https://i.imgur.com/vThDEXT.jpg",
+            "date": "2023-06-18",
+            "location": "Truist Park",
+            "details": "Join us for a special Father's Day trip as we see the Braves play the Mets at home.",
+            "published_date": "2023-06-09T14:51:39.989Z"
+        }
+    }
+]
