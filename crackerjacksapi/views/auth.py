@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
-from crackerjacksapi.models import CrackerjacksUser
+from crackerjacksapi.models import CrackerjacksUser, Team
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -15,10 +15,10 @@ def login_user(request):
     Method arguments:
         request -- The full HTTP request object
     '''
-    email = request.data['email']
+    username = request.data['username']
     password = request.data['password']
 
-    authenticated_user = authenticate(email=email, password=password)
+    authenticated_user = authenticate(username=username, password=password)
 
     if authenticated_user is not None:
         token = Token.objects.get(user=authenticated_user)
@@ -39,6 +39,7 @@ def register_user(request):
     Method arguments:
         request -- The full HTTP request object
     '''
+    favorite_team = Team.objects.get(pk=request.data["favorite_team"])
 
     new_user = User.objects.create_user(
         username=request.data['username'],
@@ -52,7 +53,7 @@ def register_user(request):
     crackerjacks_user = CrackerjacksUser.objects.create(
         bio=request.data['bio'],
         profile_image_url=request.data['profile_image_url'],
-        favorite_team=request.data['favorite_team'],
+        favorite_team=favorite_team,
         user=new_user
     )
 
