@@ -1,3 +1,3 @@
 DELETE
-FROM crackerjacksapi_park
-WHERE crackerjacksapi_park.id IS NOT NULL
+FROM crackerjacksapi_team
+WHERE crackerjacksapi_team.id IS NOT NULL
