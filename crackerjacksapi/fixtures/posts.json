@@ -1,0 +1,22 @@
+[
+    {
+        "model": "crackerjacksapi.post",
+        "pk": 1,
+        "fields": {
+            "author": 1,
+            "image_url": "https://i.imgur.com/mT3woaO.jpg",
+            "caption": "Had a blast last year visiting Wrigley Field for our annual Father's Day trip",
+            "published_date": "2023-06-09T14:51:39.989Z"
+        }
+    },
+    {
+        "model": "crackerjacksapi.post",
+        "pk": 2,
+        "fields": {
+            "author": 2,
+            "image_url": "https://i.imgur.com/JBiIfY8.jpg",
+            "caption": "It's a great day for baseball!",
+            "published_date": "2023-06-10T14:51:39.989Z"
+        }
+    }
+]
