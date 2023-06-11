@@ -45,6 +45,11 @@ class TripView(ViewSet):
         )
         serializer = TripSerializer(trip)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def destroy(self, request, pk):
+        trip = Trip.objects.get(pk=pk)
+        trip.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
     
 class TripSerializer(serializers.ModelSerializer):
     """JSON serializer for trips
