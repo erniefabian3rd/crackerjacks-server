@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from crackerjacksapi.models import Post
+from crackerjacksapi.models import Post, CrackerjacksUser
 
 
 class PostView(ViewSet):
@@ -26,6 +26,22 @@ class PostView(ViewSet):
         posts = Post.objects.all()
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
+
+    def create(self, request):
+        """Handle POST operations to create a post
+
+        Returns
+            Response -- JSON serialized post instance
+        """
+        author = CrackerjacksUser.objects.get(user=request.auth.user)
+
+        post = Post.objects.create(
+            image_url=request.data["image_url"],
+            caption=request.data["caption"],
+            author=author
+        )
+        serializer = PostSerializer(post)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
     
 class PostSerializer(serializers.ModelSerializer):
     """JSON serializer for posts
