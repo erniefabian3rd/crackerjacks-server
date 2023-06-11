@@ -42,6 +42,11 @@ class PostView(ViewSet):
         )
         serializer = PostSerializer(post)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def destroy(self, request, pk):
+        post = Post.objects.get(pk=pk)
+        post.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
     
 class PostSerializer(serializers.ModelSerializer):
     """JSON serializer for posts
