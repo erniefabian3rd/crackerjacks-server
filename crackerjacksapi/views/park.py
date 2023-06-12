@@ -16,7 +16,7 @@ class ParkView(ViewSet):
         """
         park = Park.objects.get(pk=pk)
         serializer = ParkSerializer(park)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
     def list(self, request):
         """Handle GET requests to get all parks
@@ -26,7 +26,7 @@ class ParkView(ViewSet):
         """
         parks = Park.objects.all()
         serializer = ParkSerializer(parks, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
 class ParkSerializer(serializers.ModelSerializer):
     """JSON serializer for parks"""

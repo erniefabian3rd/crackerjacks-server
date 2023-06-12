@@ -17,7 +17,7 @@ class TeamView(ViewSet):
         """
         team = Team.objects.get(pk=pk)
         serializer = TeamSerializer(team)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
     def list(self, request):
         """Handle GET requests to get all teams
@@ -27,7 +27,7 @@ class TeamView(ViewSet):
         """
         teams = Team.objects.all()
         serializer = TeamSerializer(teams, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
 class TeamSerializer(serializers.ModelSerializer):
     """JSON serializer for teams
