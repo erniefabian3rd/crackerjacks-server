@@ -18,13 +18,14 @@ from django.conf.urls import include
 from django.contrib import admin
 from rest_framework import routers
 from django.urls import path
-from crackerjacksapi.views import register_user, login_user, TeamView, ParkView, TripView, PostView
+from crackerjacksapi.views import register_user, login_user, TeamView, ParkView, TripView, PostView, CrackerjacksUserView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'teams', TeamView, 'team')
 router.register(r'parks', ParkView, 'park')
 router.register(r'trips', TripView, 'trip')
 router.register(r'posts', PostView, 'post')
+router.register(r'users', CrackerjacksUserView, 'user')
 
 
 urlpatterns = [

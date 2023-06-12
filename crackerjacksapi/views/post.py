@@ -15,7 +15,7 @@ class PostView(ViewSet):
         """
         post = Post.objects.get(pk=pk)
         serializer = PostSerializer(post)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
     def list(self, request):
         """Handle GET requests to get all posts
@@ -25,7 +25,7 @@ class PostView(ViewSet):
         """
         posts = Post.objects.all()
         serializer = PostSerializer(posts, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def create(self, request):
         """Handle POST operations to create a post
