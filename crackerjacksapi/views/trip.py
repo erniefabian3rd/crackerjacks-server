@@ -46,6 +46,25 @@ class TripView(ViewSet):
         serializer = TripSerializer(trip)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+    def update(self, request, pk):
+        """Handle PUT requests for a trip
+
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+
+        trip = Trip.objects.get(pk=pk)
+        organizer = CrackerjacksUser.objects.get(user=request.auth.user)
+        trip.title = request.data["title"]
+        trip.image_url = request.data["image_url"]
+        trip.date = request.data["date"]
+        trip.location = request.data["location"]
+        trip.details = request.data["details"]
+        trip.organizer = organizer
+
+        trip.save()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
     def destroy(self, request, pk):
         trip = Trip.objects.get(pk=pk)
         trip.delete()
