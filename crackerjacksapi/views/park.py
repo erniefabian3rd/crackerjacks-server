@@ -32,4 +32,5 @@ class ParkSerializer(serializers.ModelSerializer):
     """JSON serializer for parks"""
     class Meta:
         model = Park
-        fields = ('id', 'name', 'bio', 'location', 'image_url', 'capacity', 'rating', 'review')
+        fields = ('id', 'name', 'bio', 'location', 'image_url', 'capacity', 'rating', 'review', 'home_team')
+        depth = 1
