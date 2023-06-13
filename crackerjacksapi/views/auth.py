@@ -24,7 +24,8 @@ def login_user(request):
         token = Token.objects.get(user=authenticated_user)
         data = {
             'valid': True,
-            'token': token.key
+            'token': token.key,
+            'user_id': token.user.id
         }
         return Response(data)
     else:
@@ -49,7 +50,6 @@ def register_user(request):
         last_name=request.data['last_name']
     )
 
-    # Now save the extra info in the levelupapi_gamer table
     crackerjacks_user = CrackerjacksUser.objects.create(
         bio=request.data['bio'],
         profile_image_url=request.data['profile_image_url'],
