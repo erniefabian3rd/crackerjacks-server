@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from crackerjacksapi.models import CrackerjacksUser
+from crackerjacksapi.models import CrackerjacksUser, Team
 from django.contrib.auth.models import User
 from rest_framework.decorators import action
 
@@ -29,7 +29,22 @@ class CrackerjacksUserView(ViewSet):
         cj_users = CrackerjacksUser.objects.all()
         serializer = CrackerjacksUserSerializer(cj_users, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-    
+
+    def update(self, request, pk):
+        """Handle PUT requests for a user
+
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+
+        cj_user = CrackerjacksUser.objects.get(pk=pk)
+        cj_user.bio = request.data["bio"]
+        cj_user.profile_image_url = request.data["profile_image_url"]
+        cj_user.favorite_team = Team.objects.get(pk=request.data["favorite_team"])
+
+        cj_user.save()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
     @ action(methods=["get"], detail=False)
     def myprofile(self, request):
         """Get method for my profile"""
