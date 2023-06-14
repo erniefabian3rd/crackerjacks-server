@@ -3,6 +3,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from crackerjacksapi.models import Post, CrackerjacksUser
+from rest_framework.decorators import action
 
 
 class PostView(ViewSet):
@@ -24,6 +25,14 @@ class PostView(ViewSet):
             Response -- JSON serialized list of posts
         """
         posts = Post.objects.all()
+        author = CrackerjacksUser.objects.get(user=request.auth.user)
+
+        for post in posts:
+            if post.author == author:
+                post.may_edit_or_delete = True
+            else:
+                post.may_edit_or_delete = False
+
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -69,5 +78,5 @@ class PostSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Post
-        fields = ('id', 'image_url', 'caption', 'published_date', 'author')
+        fields = ('id', 'image_url', 'caption', 'published_date', 'author', 'may_edit_or_delete')
         depth = 2

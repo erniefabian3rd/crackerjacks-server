@@ -24,6 +24,15 @@ class TripView(ViewSet):
             Response -- JSON serialized list of trips
         """
         trips = Trip.objects.all()
+        organizer = CrackerjacksUser.objects.get(user=request.auth.user)
+
+        for trip in trips:
+            if trip.organizer == organizer:
+                trip.may_edit_or_delete = True
+            else:
+                trip.may_edit_or_delete = False
+
+
         serializer = TripSerializer(trips, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -75,5 +84,5 @@ class TripSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Trip
-        fields = ('id', 'organizer', 'title', 'image_url', 'date', 'location', 'details', 'published_date')
+        fields = ('id', 'organizer', 'title', 'image_url', 'date', 'location', 'details', 'published_date', 'may_edit_or_delete')
         depth = 2
