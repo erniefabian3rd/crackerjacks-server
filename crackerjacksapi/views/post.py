@@ -14,7 +14,14 @@ class PostView(ViewSet):
         Returns:
             Response -- JSON serialized post
         """
+        author = CrackerjacksUser.objects.get(user=request.auth.user)
         post = Post.objects.get(pk=pk)
+
+        if post.author == author:
+            post.may_edit_or_delete = True
+        else:
+            post.may_edit_or_delete = False
+
         serializer = PostSerializer(post)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
