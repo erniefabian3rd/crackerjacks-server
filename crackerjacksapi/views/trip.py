@@ -1,4 +1,5 @@
 from django.http import HttpResponseServerError
+from django.db.models import Q
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
@@ -31,6 +32,14 @@ class TripView(ViewSet):
                 trip.may_edit_or_delete = True
             else:
                 trip.may_edit_or_delete = False
+
+            search = request.query_params.get('search', None)
+            if search is not None:
+                trips = trips.filter(
+                    Q(organizer__user__username__icontains=search) |
+                    Q(title__icontains=search) |
+                    Q(location__icontains=search)
+                )
 
 
         serializer = TripSerializer(trips, many=True)
