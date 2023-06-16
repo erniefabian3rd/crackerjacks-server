@@ -36,8 +36,9 @@ class PostView(ViewSet):
         Returns:
             Response -- JSON serialized list of posts
         """
-        posts = Post.objects.all()
         author = CrackerjacksUser.objects.get(user=request.auth.user)
+        following = author.following.values_list('user_id', flat=True)
+        posts = Post.objects.filter(Q(author__id__in=following) | Q(author=author))
 
         for post in posts:
             if post.author == author:
@@ -118,4 +119,4 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ('id', 'image_url', 'caption', 'published_date', 'author', 'may_edit_or_delete', 'like', 'is_liked', 'like_count')
-        depth = 2
+        depth = 3

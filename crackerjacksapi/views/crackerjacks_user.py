@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from crackerjacksapi.models import CrackerjacksUser, Team
+from crackerjacksapi.models import CrackerjacksUser, Team, Follower
 from django.contrib.auth.models import User
 from rest_framework.decorators import action
 
@@ -16,7 +16,11 @@ class CrackerjacksUserView(ViewSet):
         Returns:
             Response -- JSON serialized cj user
         """
+        auth_user = CrackerjacksUser.objects.get(user=request.auth.user)
         cj_user = CrackerjacksUser.objects.get(pk=pk)
+        
+        cj_user.is_followed = cj_user.is_followed_by_user(auth_user)
+
         serializer = CrackerjacksUserSerializer(cj_user)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
@@ -55,10 +59,42 @@ class CrackerjacksUserView(ViewSet):
             return Response(serializer.data)
         except CrackerjacksUser.DoesNotExist:
             return Response({"message": "I do not exist."}, status=404)
+
+    @action(methods=['POST'], detail=True)
+    def follow(self, request, pk):
+        """Post request for a user to follow another user"""
+
+        auth_user = CrackerjacksUser.objects.get(user=request.auth.user)
+        other_user = CrackerjacksUser.objects.get(pk=pk)
+
+        follower = Follower.objects.create(
+            follower = auth_user,
+            user = other_user
+        )
+        serializer = FollowerSerializer(follower)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+    @action(methods=['DELETE'], detail=True)
+    def unfollow(self, request, pk):
+        """Delete request for a user to unfollow another user"""
+
+        auth_user = CrackerjacksUser.objects.get(user=request.auth.user)
+        other_user = CrackerjacksUser.objects.get(pk=pk)
+        follower = Follower.objects.get(follower=auth_user, user=other_user)
+
+        follower.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
     
 class CrackerjacksUserSerializer(serializers.ModelSerializer):
     """JSON serializer for cj users"""
     class Meta:
         model = CrackerjacksUser
-        fields = ('id', 'bio', 'profile_image_url', 'created_on', 'favorite_team', 'user', 'post_likes')
+        fields = ('id', 'bio', 'profile_image_url', 'created_on', 'favorite_team', 'user', 'post_likes', 'followed_by', 'following', 'is_followed')
+        depth = 1
+
+class FollowerSerializer(serializers.ModelSerializer):
+    """JSON serializer for followers"""
+    class Meta:
+        model = Follower
+        fields = ('id', 'follower', 'user', 'followed_on')
         depth = 1
