@@ -1,4 +1,5 @@
 from django.http import HttpResponseServerError
+from django.db.models import Q
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
@@ -45,6 +46,13 @@ class PostView(ViewSet):
                 post.may_edit_or_delete = False
 
             post.is_liked = post.is_liked_by_user(author)
+
+            search = request.query_params.get('search', None)
+            if search is not None:
+                posts = posts.filter(
+                    Q(author__user__username__icontains=search) |
+                    Q(caption__icontains=search)
+                )
 
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
