@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from crackerjacksapi.models import Post, CrackerjacksUser
+from crackerjacksapi.models import Post, CrackerjacksUser, PostLike
 from rest_framework.decorators import action
 
 
@@ -22,6 +22,10 @@ class PostView(ViewSet):
         else:
             post.may_edit_or_delete = False
 
+        post.is_liked = post.is_liked_by_user(author)
+
+        post.like_count = len(PostLike.objects.filter(post_id=post))
+
         serializer = PostSerializer(post)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
@@ -39,6 +43,8 @@ class PostView(ViewSet):
                 post.may_edit_or_delete = True
             else:
                 post.may_edit_or_delete = False
+
+            post.is_liked = post.is_liked_by_user(author)
 
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -80,10 +86,28 @@ class PostView(ViewSet):
         post.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
     
+    @action(methods=['POST'], detail=True)
+    def like(self, request, pk):
+        """Post request for a user to like a post"""
+
+        user = CrackerjacksUser.objects.get(user=request.auth.user)
+        post = Post.objects.get(pk=pk)
+        post.like.add(user)
+        return Response({'message': 'Post was liked'}, status=status.HTTP_201_CREATED)
+    
+    @action(methods=['DELETE'], detail=True)
+    def unlike(self, request, pk):
+        """Delete request for a user to unlike a post"""
+
+        user = CrackerjacksUser.objects.get(user=request.auth.user)
+        post = Post.objects.get(pk=pk)
+        post.like.remove(user)
+        return Response({'message': 'Post was unliked'}, status=status.HTTP_204_NO_CONTENT)
+    
 class PostSerializer(serializers.ModelSerializer):
     """JSON serializer for posts
     """
     class Meta:
         model = Post
-        fields = ('id', 'image_url', 'caption', 'published_date', 'author', 'may_edit_or_delete')
+        fields = ('id', 'image_url', 'caption', 'published_date', 'author', 'may_edit_or_delete', 'like', 'is_liked', 'like_count')
         depth = 2

@@ -14,3 +14,22 @@ class Post(models.Model):
     @may_edit_or_delete.setter
     def may_edit_or_delete(self, value):
         self.__may_edit_or_delete = value
+
+    @property
+    def is_liked(self):
+        return self.__is_liked
+
+    @is_liked.setter
+    def is_liked(self, value):
+        self.__is_liked = value
+
+    def is_liked_by_user(self, user):
+        return self.like.filter(id=user.id).exists()
+
+    @property
+    def like_count(self):
+        return self.__like_count
+
+    @like_count.setter
+    def like_count(self, value):
+        self.__like_count = value
