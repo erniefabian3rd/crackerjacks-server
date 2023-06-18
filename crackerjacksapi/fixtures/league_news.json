@@ -1,0 +1,52 @@
+[
+    {
+        "model": "crackerjacksapi.leaguenews",
+        "pk": 1,
+        "fields": {
+            "title": "Mets get Pete Alonso off IL well ahead of schedule",
+            "article": "The New York Mets have activated first baseman Pete Alonso from the injured list. Alonso suffered a bone bruise and sprain of his left wrist after he was hit by a 96 mph fastball in a June 7 game against the Atlanta Braves. The Mets had expected Alonso to be out three to four weeks, but instead he is being activated after the minimum 10 days.",
+            "link_url": "https://www.espn.com/mlb/story/_/id/37873713/mets-get-pete-alonso-il-well-ahead-schedule",
+            "published_date": "Jun 18, 2023"
+        }
+    },
+    {
+        "model": "crackerjacksapi.leaguenews",
+        "pk": 2,
+        "fields": {
+            "title": "Dodgers routed by Giants in worst home shutout loss since 1898",
+            "article": "J.D. Davis took batting practice five hours ahead of game time, landing balls in the center field net. He did it again when it counted. LaMonte Wade Jr. hit a three-run homer, Davis added a pinch-hit grand slam and the San Francisco Giants routed the slumping Los Angeles Dodgers 15-0 on Saturday night for their season-high sixth straight victory.",
+            "link_url": "https://www.espn.com/mlb/story/_/id/37871277/dodgers-routed-giants-worst-home-shutout-loss-1898",
+            "published_date": "Jun 18, 2023"
+        }
+    },
+    {
+        "model": "crackerjacksapi.leaguenews",
+        "pk": 3,
+        "fields": {
+            "title": "Red Sox say Tanner Houck has facial fracture from liner",
+            "article": "Boston right-hander Tanner Houck sustained a facial fracture after being struck just under his right eye by a line drive from the New York Yankees' Kyle Higashioka on Friday night. The Red Sox said Saturday that Houck received stitches at Fenway Park and was taken to Mass General Hospital for evaluation. Houck was resting at home Saturday in stable condition and is slated for follow-up appointments next week to determine further treatment.",
+            "link_url": "https://www.espn.com/mlb/story/_/id/37871120/red-sox-say-tanner-houck-facial-fracture-liner",
+            "published_date": "Jun 17, 2023"
+        }
+    },
+    {
+        "model": "crackerjacksapi.leaguenews",
+        "pk": 4,
+        "fields": {
+            "title": "World Series hero David Freese declines Cardinals HOF invite",
+            "article": "David Freese, whose heroics in the 2011 postseason led the St. Louis Cardinals to the World Series title, has decided after 'an extreme amount of thought' to decline an invitation to join the team's Hall of Fame, he announced Saturday. 'This is something that I have given an extreme amount of thought to, humbly, even before the voting process began,' Freese said in a statement. 'I am aware of the impact I had helping the team bring great memories to the city I grew up in, including the 11th championship.'",
+            "link_url": "https://www.espn.com/mlb/story/_/id/37869141/world-series-hero-david-freese-declines-cardinals-hof-invite",
+            "published_date": "Jun 17, 2023"
+        }
+    },
+    {
+        "model": "crackerjacksapi.leaguenews",
+        "pk": 5,
+        "fields": {
+            "title": "Bus driver transporting Pittsburgh Pirates charged with DUI",
+            "article": "A bus driver hired to transport the Pittsburgh Pirates from Chicago to Milwaukee was stopped during the journey and charged with DUI. The trip began in Chicago on Thursday night after the Pirates' 7-2 loss to the Cubs before an Illinois State Police escort noticed erratic driving and put a stop to the ride.",
+            "link_url": "https://www.espn.com/mlb/story/_/id/37869731/bus-driver-transporting-pittsburgh-pirates-charged-dui",
+            "published_date": "Jun 17, 2023"
+        }
+    }
+]

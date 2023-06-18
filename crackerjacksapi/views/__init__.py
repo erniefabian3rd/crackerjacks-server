@@ -5,3 +5,4 @@ from .trip import TripView
 from .post import PostView
 from .comment import CommentView
 from .crackerjacks_user import CrackerjacksUserView
+from .league_news import LeagueNewsView
