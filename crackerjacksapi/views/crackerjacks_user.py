@@ -1,4 +1,5 @@
 from django.http import HttpResponseServerError
+from django.db.models import Q
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
@@ -31,6 +32,16 @@ class CrackerjacksUserView(ViewSet):
             Response -- JSON serialized list of cj users
         """
         cj_users = CrackerjacksUser.objects.all()
+
+        search = request.query_params.get('search', None)
+        if search is not None:
+            cj_users = cj_users.filter(
+                Q(user__username__icontains=search) |
+                Q(user__first_name__icontains=search) |
+                Q(user__last_name__icontains=search) |
+                Q(favorite_team__name__icontains=search)
+            )
+
         serializer = CrackerjacksUserSerializer(cj_users, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 

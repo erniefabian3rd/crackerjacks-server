@@ -8,6 +8,7 @@ class Trip(models.Model):
     location = models.CharField(max_length=100)
     details = models.CharField(max_length=255)
     published_date = models.DateTimeField(null=False, blank=False, auto_now=False, auto_now_add=True)
+    attendees = models.ManyToManyField("CrackerjacksUser", related_name="attending")
 
     @property
     def may_edit_or_delete(self):
@@ -16,3 +17,14 @@ class Trip(models.Model):
     @may_edit_or_delete.setter
     def may_edit_or_delete(self, value):
         self.__may_edit_or_delete = value
+
+    @property
+    def is_joined(self):
+        return self.__is_joined
+
+    @is_joined.setter
+    def is_joined(self, value):
+        self.__is_joined = value
+
+    def is_joined_by_user(self, user):
+        return self.attendees.filter(id=user.id).exists()
