@@ -19,13 +19,9 @@ class ParkView(ViewSet):
         """
         cj_user = CrackerjacksUser.objects.get(user=request.auth.user)
         park = Park.objects.get(pk=pk)
-        visited_parks = UserVisitedPark.objects.all()
 
-        for parks in visited_parks:
-            if parks.user == cj_user and parks.park == park:
-                park.is_visited = True
-            else:
-                park.is_visited = False
+        visited_park = UserVisitedPark.objects.filter(user=cj_user, park=park).exists()
+        park.is_visited = visited_park
         
         avg_rating = ParkRating.objects.filter(park_id = park).aggregate(Avg('rating'))
         park.avg_rating = avg_rating['rating__avg']
@@ -40,6 +36,10 @@ class ParkView(ViewSet):
             Response -- JSON serialized list of parks
         """
         parks = Park.objects.all()
+
+        for park in parks:
+            avg_rating = ParkRating.objects.filter(park_id = park).aggregate(Avg('rating'))
+            park.avg_rating = avg_rating['rating__avg']
 
         search = request.query_params.get('search', None)
         if search is not None:
