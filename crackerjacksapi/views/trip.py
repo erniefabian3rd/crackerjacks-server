@@ -4,6 +4,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from crackerjacksapi.models import Trip, CrackerjacksUser
+from rest_framework.decorators import action
 
 
 class TripView(ViewSet):
@@ -14,7 +15,11 @@ class TripView(ViewSet):
         Returns:
             Response -- JSON serialized trip
         """
+        attendee = CrackerjacksUser.objects.get(user=request.auth.user)
         trip = Trip.objects.get(pk=pk)
+
+        trip.is_joined = trip.is_joined_by_user(attendee)
+
         serializer = TripSerializer(trip)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
@@ -32,6 +37,8 @@ class TripView(ViewSet):
                 trip.may_edit_or_delete = True
             else:
                 trip.may_edit_or_delete = False
+            
+            trip.is_joined = trip.is_joined_by_user(organizer)
 
             search = request.query_params.get('search', None)
             if search is not None:
@@ -87,11 +94,29 @@ class TripView(ViewSet):
         trip = Trip.objects.get(pk=pk)
         trip.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+    @action(methods=['POST'], detail=True)
+    def join(self, request, pk):
+        """Post request for a user to join a trip"""
+
+        cj_user = CrackerjacksUser.objects.get(user=request.auth.user)
+        trip = Trip.objects.get(pk=pk)
+        trip.attendees.add(cj_user)
+        return Response({'message': 'User added to trip'}, status=status.HTTP_201_CREATED)
+
+    @action(methods=['DELETE'], detail=True)
+    def leave(self, request, pk):
+        """Delete request for a user to leave a trip"""
+
+        cj_user = CrackerjacksUser.objects.get(user=request.auth.user)
+        trip = Trip.objects.get(pk=pk)
+        trip.attendees.remove(cj_user)
+        return Response({'message': 'User left the trip'}, status=status.HTTP_204_NO_CONTENT)
     
 class TripSerializer(serializers.ModelSerializer):
     """JSON serializer for trips
     """
     class Meta:
         model = Trip
-        fields = ('id', 'organizer', 'title', 'image_url', 'date', 'location', 'details', 'published_date', 'may_edit_or_delete')
+        fields = ('id', 'organizer', 'title', 'image_url', 'date', 'location', 'details', 'published_date', 'may_edit_or_delete', 'attendees', 'is_joined')
         depth = 2
