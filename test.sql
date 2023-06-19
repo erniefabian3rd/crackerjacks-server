@@ -7,4 +7,7 @@ SET profile_image_url = 'https://i.imgur.com/1AvDPdP.jpg'
 WHERE user_id = 3;
 
 DELETE
-FROM crackerjacksapi_team
+FROM crackerjacksapi_parkrating;
+
+DELETE
+FROM crackerjacksapi_parkreview;
