@@ -8,3 +8,11 @@ class Park(models.Model):
     capacity = models.CharField(max_length=50)
     rating = models.ManyToManyField("CrackerjacksUser", through="ParkRating", related_name="park_ratings")
     review = models.ManyToManyField("CrackerjacksUser", through="ParkReview", related_name="park_reviews")
+
+    @property
+    def is_visited(self):
+        return self.__is_visited
+
+    @is_visited.setter
+    def is_visited(self, value):
+        self.__is_visited = value

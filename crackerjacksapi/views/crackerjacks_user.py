@@ -89,7 +89,7 @@ class CrackerjacksUserSerializer(serializers.ModelSerializer):
     """JSON serializer for cj users"""
     class Meta:
         model = CrackerjacksUser
-        fields = ('id', 'bio', 'profile_image_url', 'created_on', 'favorite_team', 'user', 'post_likes', 'followed_by', 'following', 'is_followed')
+        fields = ('id', 'bio', 'profile_image_url', 'created_on', 'favorite_team', 'user', 'post_likes', 'followed_by', 'following', 'is_followed', 'visited_parks')
         depth = 1
 
 class FollowerSerializer(serializers.ModelSerializer):
