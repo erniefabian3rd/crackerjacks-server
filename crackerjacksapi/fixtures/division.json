@@ -1,0 +1,44 @@
+[
+    {
+        "model": "crackerjacksapi.division",
+        "pk": 1,
+        "fields": {
+            "name": "American League Central"
+        }
+    },
+    {
+        "model": "crackerjacksapi.division",
+        "pk": 2,
+        "fields": {
+            "name": "American League East"
+        }
+    },
+    {
+        "model": "crackerjacksapi.division",
+        "pk": 3,
+        "fields": {
+            "name": "American League West"
+        }
+    },
+    {
+        "model": "crackerjacksapi.division",
+        "pk": 4,
+        "fields": {
+            "name": "National League Central"
+        }
+    },
+    {
+        "model": "crackerjacksapi.division",
+        "pk": 5,
+        "fields": {
+            "name": "National League East"
+        }
+    },
+    {
+        "model": "crackerjacksapi.division",
+        "pk": 6,
+        "fields": {
+            "name": "National League West"
+        }
+    }
+]

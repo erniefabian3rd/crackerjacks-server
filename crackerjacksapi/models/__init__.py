@@ -12,3 +12,4 @@ from .trip import Trip
 from .user_trip import UserTrip
 from .user_visited_park import UserVisitedPark
 from .league_news import LeagueNews
+from .division import Division

@@ -1,4 +1,5 @@
 from django.http import HttpResponseServerError
+from django.db.models import Q
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
@@ -35,6 +36,14 @@ class ParkView(ViewSet):
             Response -- JSON serialized list of parks
         """
         parks = Park.objects.all()
+
+        search = request.query_params.get('search', None)
+        if search is not None:
+            parks = parks.filter(
+                Q(name__icontains=search) |
+                Q(location__icontains=search)
+            )
+
         serializer = ParkSerializer(parks, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     

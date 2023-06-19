@@ -1,4 +1,5 @@
 from django.http import HttpResponseServerError
+from django.db.models import Q
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status, permissions
@@ -26,6 +27,14 @@ class TeamView(ViewSet):
             Response -- JSON serialized list of teams
         """
         teams = Team.objects.all()
+
+        search = request.query_params.get('search', None)
+        if search is not None:
+            teams = teams.filter(
+                Q(name__icontains=search) |
+                Q(division__name__icontains=search)
+            )
+
         serializer = TeamSerializer(teams, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
@@ -34,5 +43,5 @@ class TeamSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Team
-        fields = ('id', 'name', 'bio', 'image_url', 'park')
+        fields = ('id', 'name', 'bio', 'image_url', 'park', 'division')
         depth = 1
