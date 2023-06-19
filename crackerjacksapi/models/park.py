@@ -16,3 +16,11 @@ class Park(models.Model):
     @is_visited.setter
     def is_visited(self, value):
         self.__is_visited = value
+
+    @property
+    def avg_rating(self):
+        return self.__avg_rating
+
+    @avg_rating.setter
+    def avg_rating(self, value):
+        self.__avg_rating = value
