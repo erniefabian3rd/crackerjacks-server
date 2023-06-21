@@ -20,6 +20,8 @@ class TripView(ViewSet):
 
         trip.is_joined = trip.is_joined_by_user(attendee)
 
+        trip.guest_count = trip.attendees.count()
+
         serializer = TripSerializer(trip)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
@@ -118,5 +120,5 @@ class TripSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Trip
-        fields = ('id', 'organizer', 'title', 'image_url', 'date', 'location', 'details', 'published_date', 'may_edit_or_delete', 'attendees', 'is_joined')
+        fields = ('id', 'organizer', 'title', 'image_url', 'date', 'location', 'details', 'published_date', 'may_edit_or_delete', 'attendees', 'is_joined', 'guest_count')
         depth = 2

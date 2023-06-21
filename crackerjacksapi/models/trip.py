@@ -28,3 +28,11 @@ class Trip(models.Model):
 
     def is_joined_by_user(self, user):
         return self.attendees.filter(id=user.id).exists()
+    
+    @property
+    def guest_count(self):
+        return self.__guest_count
+
+    @guest_count.setter
+    def guest_count(self, value):
+        self.__guest_count = value
