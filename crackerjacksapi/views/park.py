@@ -104,7 +104,7 @@ class ParkSerializer(serializers.ModelSerializer):
     class Meta:
         model = Park
         fields = ('id', 'name', 'bio', 'location', 'image_url', 'capacity', 'home_team', 'users_visited', 'is_visited', 'park_rating', 'park_reviews', 'avg_rating')
-        depth = 1
+        depth = 3
 
 class UserVisitedParkSerializer(serializers.ModelSerializer):
     """JSON serializer for visited_parks"""
